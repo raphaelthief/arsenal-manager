@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arsenal-manager"
+version = "0.1.4"
+description = "Interactive manager for Orange Cyberdefense Arsenal cheatsheets and configuration."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.12,<1",
+    "rich>=13.7,<15",
+    "questionary>=2.0,<3",
+]
+
+[project.scripts]
+arsenal-manager = "arsenal_manager.cli:app"
+arscreator = "arsenal_manager.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["arsenal_manager*"]
