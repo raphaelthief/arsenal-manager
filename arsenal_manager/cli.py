@@ -53,7 +53,7 @@ def interactive():
         try:
             if choice.startswith("1."): create_cheat_interactive(cheats_dir())
             elif choice.startswith("2."): pause = manage_cheats_interactive(cheats_dir())
-            elif choice.startswith("3."): manage_arsenal_variables_interactive()
+            elif choice.startswith("3."): pause = manage_arsenal_variables_interactive()
             elif choice.startswith("4."): _validate()
             elif choice.startswith("5."): pause = configure_interactive()
             elif choice.startswith("6."): status()
