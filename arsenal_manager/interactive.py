@@ -56,11 +56,21 @@ def choose_targets() -> list[str]:
 
 def create_cheat_interactive(output_dir: Path) -> Path | None:
     clear_screen()
+    variables = load_arsenal_variables()
+    if variables:
+        current_variables = " | ".join(
+            f"[magenta]<{name}>[/magenta]"
+            for name in sorted(variables)
+        )
+    else:
+        current_variables = "None configured"
+    
     console.print(
         Panel(
             "[cyan]Create a new custom Arsenal cheatsheet in ~/.cheats.[/cyan]\n"
             "Define the title, description, command, platform and target. The cheatsheet will be categorized under CUSTOM.\n"
             "Default variables available: <LHOST> <LPORT> <RHOST> <RPORT> | <user> <password> | <wordlist> \n"
+            f"Current configured variables: {current_variables}\n"
             "[red]>[/red] [blue][<PLATEFORM>] <TARGET> <CATEGORIE>[/blue] [cyan]CUSTOM[/cyan] [yellow]<YOUR_TITLE>[/yellow] [magenta]<YOUR_COMMAND>[/magenta]\n"
             "[dim]Example:[/dim]\n"
             "[red]>[/red] [blue][L] Rem RECON[/blue] [cyan]CUSTOM[/cyan] [yellow]nmap - hosts alive[/yellow] [magenta]nmap -sn <ip_range>[/magenta]",
