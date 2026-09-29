@@ -108,7 +108,7 @@ def create_cheat_interactive(output_dir: Path) -> Path | None:
 
 def _cheat_rows(directory: Path) -> list[tuple[Path, bool, str]]:
     rows = []
-    for path in sorted(directory.glob("*.md")):
+    for path in sorted(directory.rglob("*.md")):
         problems = validate_file(path)
         valid = not problems
         rows.append((path, valid, problems[0] if problems else "Valid"))
