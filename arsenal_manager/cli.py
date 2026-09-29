@@ -334,7 +334,7 @@ def _validate() -> bool:
     )
     
     directory = cheats_dir()
-    files = sorted(directory.glob("*.md"))
+    files = sorted(directory.rglob("*.md"))
     if not files:
         console.print("[yellow]No custom cheats found.[/yellow]")
         return False
